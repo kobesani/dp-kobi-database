@@ -5,7 +5,11 @@ description = ""
 authors = ["Kobi <harold.rockata@gmail.com>"]
 
 [tool.poetry.dependencies]
-python = "^3.10"
+python = ">=3.10,<3.11"
+SQLAlchemy = ">=1.2.0,<=1.4.27"
+alembic = "^1.8.1"
+google-cloud = "^0.34.0"
+sqlalchemy-bigquery = "^1.4.4"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"
