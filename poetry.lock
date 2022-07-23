@@ -275,6 +275,20 @@ optional = false
 python-versions = ">=3.5"
 
 [[package]]
+name = "jinja2"
+version = "3.1.2"
+description = "A very fast and expressive template engine."
+category = "main"
+optional = false
+python-versions = ">=3.7"
+
+[package.dependencies]
+MarkupSafe = ">=2.0"
+
+[package.extras]
+i18n = ["Babel (>=2.7)"]
+
+[[package]]
 name = "mako"
 version = "1.2.1"
 description = "A super-fast templating language that borrows the best ideas from the existing templating languages."
@@ -430,6 +444,18 @@ checkqa-mypy = ["mypy (==v0.761)"]
 testing = ["argcomplete", "hypothesis (>=3.56)", "mock", "nose", "requests", "xmlschema"]
 
 [[package]]
+name = "python-bigquery-validator"
+version = "0.0.10"
+description = "Python module for validating BigQuery sql queries with support for Jinja templated variables"
+category = "main"
+optional = false
+python-versions = ">=3.6"
+
+[package.dependencies]
+google-cloud-bigquery = "*"
+Jinja2 = "*"
+
+[[package]]
 name = "python-dateutil"
 version = "2.8.2"
 description = "Extensions to the standard Python datetime module"
@@ -556,7 +582,7 @@ python-versions = "*"
 [metadata]
 lock-version = "1.1"
 python-versions = ">=3.10,<3.11"
-content-hash = "df380ced11ee9f5e1c8fbabb55436c3316688e94253a17a1de5acf341e373f92"
+content-hash = "f7d76bffcc8c2dc96ce7db23b893761ed08be564c0f8aca77130a58919125f5e"
 
 [metadata.files]
 alembic = [
@@ -779,6 +805,10 @@ idna = [
     {file = "idna-3.3-py3-none-any.whl", hash = "sha256:84d9dd047ffa80596e0f246e2eab0b391788b0503584e8945f2368256d2735ff"},
     {file = "idna-3.3.tar.gz", hash = "sha256:9d643ff0a55b762d5cdb124b8eaa99c66322e2157b69160bc32796e824360e6d"},
 ]
+jinja2 = [
+    {file = "Jinja2-3.1.2-py3-none-any.whl", hash = "sha256:6088930bfe239f0e6710546ab9c19c9ef35e29792895fed6e6e31a023a182a61"},
+    {file = "Jinja2-3.1.2.tar.gz", hash = "sha256:31351a702a408a9e7595a8fc6150fc3f43bb6bf7e319770cbc0db9df9437e852"},
+]
 mako = [
     {file = "Mako-1.2.1-py3-none-any.whl", hash = "sha256:df3921c3081b013c8a2d5ff03c18375651684921ae83fd12e64800b7da923257"},
     {file = "Mako-1.2.1.tar.gz", hash = "sha256:f054a5ff4743492f1aa9ecc47172cb33b42b9d993cffcc146c9de17e717b0307"},
@@ -970,6 +1000,10 @@ pyparsing = [
 pytest = [
     {file = "pytest-5.4.3-py3-none-any.whl", hash = "sha256:5c0db86b698e8f170ba4582a492248919255fcd4c79b1ee64ace34301fb589a1"},
     {file = "pytest-5.4.3.tar.gz", hash = "sha256:7979331bfcba207414f5e1263b5a0f8f521d0f457318836a7355531ed1a4c7d8"},
+]
+python-bigquery-validator = [
+    {file = "python-bigquery-validator-0.0.10.tar.gz", hash = "sha256:fc1137d5cee2ebf629c5a9b516f8ced4c45a31c0414682cd152bb007f67ecf3f"},
+    {file = "python_bigquery_validator-0.0.10-py3-none-any.whl", hash = "sha256:10133b3a14a3ef04a14bea8a32a8b72e69c1ff7e5ed44a651a065a35b421984e"},
 ]
 python-dateutil = [
     {file = "python-dateutil-2.8.2.tar.gz", hash = "sha256:0123cacc1627ae19ddf3c27a5de5bd67ee4586fbdd6440d9748f8abb483d3e86"},
