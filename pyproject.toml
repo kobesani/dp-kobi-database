@@ -10,6 +10,7 @@ SQLAlchemy = ">=1.2.0,<=1.4.27"
 alembic = "^1.8.1"
 google-cloud = "^0.34.0"
 sqlalchemy-bigquery = "^1.4.4"
+python-bigquery-validator = "^0.0.10"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"
