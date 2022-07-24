@@ -60,7 +60,12 @@ jobs:
         bash run-tests.sh
 
     -
-      name: Echo branch name or tag
-      run: echo "${GITHUB_REF##*/}"
-      # run: |
-      #   echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
+      name: Set branch name or tag
+      id: version
+      # run: echo "${GITHUB_REF##*/}"
+      run: |
+        echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
+    -
+      name: Echo Version
+      run: echo "${{ steps.version.outputs.VERSION }}"
+
