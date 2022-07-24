@@ -61,5 +61,6 @@ jobs:
 
     -
       name: Echo branch name or tag
-      run: |
-        echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
+      run: echo "${GITHUB_REF##*/}"
+      # run: |
+      #   echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
