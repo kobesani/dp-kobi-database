@@ -59,3 +59,7 @@ jobs:
         source .venv/bin/activate
         bash run-tests.sh
 
+    -
+      name: Echo branch name or tag
+      run: |
+        echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
