@@ -11,12 +11,15 @@ from sqlalchemy import (
     DateTime
 )
 
-metadata = MetaData(schema="dp_kobi")
+metadata = MetaData(schema="dp_valorant")
 valorant_base = declarative_base(metadata=metadata)
 
 
 class Maps(valorant_base):
     __tablename__ = "maps"
+    __tableargs__ = {
+        "comment": "Table containing the currently available maps in valorant"
+    }
 
     map_id = Column(Integer, primary_key=True)
     name = Column(String, nullable=False)
@@ -27,6 +30,9 @@ class Maps(valorant_base):
 
 class Agents(valorant_base):
     __tablename__ = "agents"
+    __tableargs__ = {
+        "comment": "Table containing the currently available agents in valorant"
+    }
 
     agent_id = Column(Integer, primary_key=True)
     name = Column(String, nullable=False)
@@ -38,6 +44,10 @@ class Agents(valorant_base):
 
 class Patches(valorant_base):
     __tablename__ = "patches"
+    __tableargs__ = {
+        "comment": "Table containing the patch updates for valorant"
+    }
+
 
     patch = Column(Integer, primary_key=True)
     release = Column(Date, nullable=False)
@@ -47,6 +57,10 @@ class Patches(valorant_base):
 
 class Matches(valorant_base):
     __tablename__ = "valorant_matches"
+    __tableargs__ = {
+        "comment": "Table containing matches scraped using the valorant_matches DAG in Airflow"
+    }
+
 
     match_id = Column(Integer, primary_key=True)
     timestamp = Column(DateTime, nullable=False)
@@ -55,5 +69,3 @@ class Matches(valorant_base):
     url = Column(String, nullable=True)
     map_stats = Column(Boolean, nullable=False)
     player_stats = Column(Boolean, nullable=False)
-
-
