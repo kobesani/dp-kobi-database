@@ -56,7 +56,7 @@ class Patches(valorant_base):
 
 
 class Matches(valorant_base):
-    __tablename__ = "valorant_matches"
+    __tablename__ = "matches"
     __tableargs__ = {
         "comment": "Table containing matches scraped using the valorant_matches DAG in Airflow"
     }
