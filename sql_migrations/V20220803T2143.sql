@@ -36,7 +36,14 @@ CREATE TABLE `dp_valorant`.`matches` (
     `player_stats` BOOL NOT NULL
 );
 
-ALTER TABLE `dp_valorant`.`agents` SET OPTIONS(description='Table containing the currently available agents in valorant');
-ALTER TABLE `dp_valorant`.`maps` SET OPTIONS(description='Table containing the currently available maps in valorant');
-ALTER TABLE `dp_valorant`.`patches` SET OPTIONS(description='Table containing the patch updates for valorant');
-ALTER TABLE `dp_valorant`.`matches` SET OPTIONS(description='Table containing matches scraped using the valorant_matches DAG in Airflow');
+ALTER TABLE `dp_valorant`.`agents`
+    SET OPTIONS(description='Table containing the currently available agents in valorant');
+
+ALTER TABLE `dp_valorant`.`maps`
+    SET OPTIONS(description='Table containing the currently available maps in valorant');
+
+ALTER TABLE `dp_valorant`.`patches`
+    SET OPTIONS(description='Table containing the patch updates for valorant');
+
+ALTER TABLE `dp_valorant`.`matches`
+    SET OPTIONS(description='Table containing matches scraped using the valorant_matches DAG in Airflow');
