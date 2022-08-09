@@ -1,10 +1,12 @@
 from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import relationship
 
 from sqlalchemy import (
     Boolean,
     Column,
     Date,
     Float,
+    ForeignKey,
     Integer,
     MetaData,
     String,
@@ -69,3 +71,40 @@ class Matches(valorant_base):
     url = Column(String, nullable=True)
     map_stats = Column(Boolean, nullable=False)
     player_stats = Column(Boolean, nullable=False)
+
+
+class TeamStats(valorant_base):
+    __tablename__ = "team_stats"
+    __tableargs__ = {
+        "comment": "Table containing the stats for each team in each game they have played"
+    }
+
+    match_id = Column(Integer, primary_key=True)
+    game_id = Column(Integer, primary_key=True)
+    team_id = Column(Integer, primary_key=True)
+    result = Column(Boolean, nullable=False)
+    score = Column(Integer, nullable=False)
+    defense_score = Column(Integer, nullable=False)
+    attack_score = Column(Integer, nullable=False)
+    attack_start = Column(Boolean, nullable=False)
+    map_name = Column(String, nullable=False)
+
+
+class PlayerStats(valorant_base):
+    __tablename__ = "player_stats"
+    __tableargs__ = {
+        "comment": "Table containing the stats for each player in each game they have played"
+    }
+ 
+    game_id = Column(Integer, primary_key=True)
+    team_id = Column(Integer, primary_key=True)
+    player_id = Column(Integer, primary_key = True)
+    acs = Column(Integer, nullable=False)
+    adr = Column(Integer, nullable=False)
+    kills = Column(Integer, nullable=False)
+    deaths = Column(Integer, nullable=False)
+    assists = Column(Integer, nullable=False)
+    first_bloods = Column(Integer, nullable=False)
+    first_deaths = Column(Integer, nullable=False)
+    kast = Column(Float, nullable=False)
+    hsp = Column(Float, nullable=False)
