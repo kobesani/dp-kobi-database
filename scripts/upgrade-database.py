@@ -31,6 +31,8 @@ job_config = bigquery.LoadJobConfig(
     autodetect=True,
 )
 
+job_config.write_disposition = "WRITE_TRUNCATE"
+
 with version_json_path.open(mode="rb") as source_file:
     job = client.load_table_from_file(source_file, table_id, job_config=job_config)
 

@@ -1,4 +1,5 @@
 -- Running upgrade V20220803T2143 -> V20220809T2156
+
 CREATE TABLE `dp_valorant`.`player_stats` (
     `game_id` INT64 NOT NULL, 
     `team_id` INT64 NOT NULL, 
@@ -26,5 +27,10 @@ CREATE TABLE `dp_valorant`.`team_stats` (
     `map_name` STRING NOT NULL
 );
 
-UPDATE `alembic_version` SET `version_num`='V20220809T2156' WHERE `alembic_version`.`version_num` = 'V20220803T2143';
+ALTER TABLE `dp_valorant`.`team_stats`
+    SET OPTIONS(description='Table containing the stats for each team in each game they have played');
 
+ALTER TABLE `dp_valorant`.`maps`
+    SET OPTIONS(description='Table containing the stats for each player in each game they have played');
+
+-- UPDATE `alembic_version` SET `version_num`='V20220809T2156' WHERE `alembic_version`.`version_num` = 'V20220803T2143';
